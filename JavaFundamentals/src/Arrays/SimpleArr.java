@@ -1,8 +1,5 @@
 package Arrays;
 
-
-import java.util.Arrays;
-
 public class SimpleArr {
     public static void main(String[] args) {
         int[] elements = {1,2,3,4};
