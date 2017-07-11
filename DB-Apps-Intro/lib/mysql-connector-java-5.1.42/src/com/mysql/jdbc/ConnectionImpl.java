@@ -70,10 +70,10 @@ import com.mysql.jdbc.profiler.ProfilerEventHandler;
 import com.mysql.jdbc.util.LRUCache;
 
 /**
- * A Connection represents a session with a specific database. Within the context of a Connection, SQL statements are executed and results are returned.
+ * A ConnectionManager represents a session with a specific database. Within the context of a ConnectionManager, SQL statements are executed and results are returned.
  * 
  * <P>
- * A Connection's database is able to provide information describing its tables, its supported SQL grammar, its stored procedures, the capabilities of this
+ * A ConnectionManager's database is able to provide information describing its tables, its supported SQL grammar, its stored procedures, the capabilities of this
  * connection, etc. This information is obtained with the getMetaData method.
  * </p>
  */
@@ -261,7 +261,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
 
     /**
      * Map mysql transaction isolation level name to
-     * java.sql.Connection.TRANSACTION_XXX
+     * java.sql.ConnectionManager.TRANSACTION_XXX
      */
     private static Map<String, Integer> mapTransIsolationNameToValue = null;
 
@@ -565,7 +565,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
 
     private int[] perfMetricsHistCounts;
 
-    /** Point of origin where this Connection was created */
+    /** Point of origin where this ConnectionManager was created */
     private String pointOfOrigin;
 
     /** The port number we're connected to (defaults to 3306) */
@@ -1449,10 +1449,10 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
     // --------------------------JDBC 2.0-----------------------------
 
     /**
-     * In some cases, it is desirable to immediately release a Connection's
+     * In some cases, it is desirable to immediately release a ConnectionManager's
      * database and JDBC resources instead of waiting for them to be
      * automatically released (cant think why off the top of my head) <B>Note:</B>
-     * A Connection is automatically closed when it is garbage collected.
+     * A ConnectionManager is automatically closed when it is garbage collected.
      * Certain fatal errors also result in a closed connection.
      * 
      * @exception SQLException
@@ -1509,7 +1509,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
     /**
      * The method commit() makes all changes made since the previous
      * commit/rollback permanent and releases any database locks currently held
-     * by the Connection. This method should only be used when auto-commit has
+     * by the ConnectionManager. This method should only be used when auto-commit has
      * been disabled.
      * <p>
      * <b>Note:</b> MySQL does not support transactions, so this method is a no-op.
@@ -2811,7 +2811,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
 
     /**
      * Returns the log mechanism that should be used to log information from/for
-     * this Connection.
+     * this ConnectionManager.
      * 
      * @return the Log instance to use for logging messages.
      * @throws SQLException
@@ -2979,7 +2979,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
     }
 
     /**
-     * Get this Connection's current transaction isolation mode.
+     * Get this ConnectionManager's current transaction isolation mode.
      * 
      * @return the current TRANSACTION_ mode value
      * @exception SQLException
@@ -3085,7 +3085,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
     }
 
     /**
-     * The first warning reported by calls on this Connection is returned.
+     * The first warning reported by calls on this ConnectionManager is returned.
      * <B>Note:</B> Sebsequent warnings will be changed to this
      * java.sql.SQLWarning
      * 
@@ -3264,7 +3264,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
 
                     if (allowedBlobSendChunkSize <= 0) {
                         throw SQLError.createSQLException(
-                                "Connection setting too low for 'maxAllowedPacket'. "
+                                "ConnectionManager setting too low for 'maxAllowedPacket'. "
                                         + "When 'useServerPrepStmts=true', 'maxAllowedPacket' must be higher than " + packetHeaderSize
                                         + ". Check also 'max_allowed_packet' in MySQL configuration files.",
                                 SQLError.SQL_STATE_INVALID_CONNECTION_ATTRIBUTE, getExceptionInterceptor());
@@ -4174,7 +4174,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
 
                 if (getUseUsageAdvisor()) {
                     if (!calledExplicitly) {
-                        String message = "Connection implicitly closed by Driver. You should call Connection.close() from your code to free resources more efficiently and avoid resource leaks.";
+                        String message = "ConnectionManager implicitly closed by Driver. You should call ConnectionManager.close() from your code to free resources more efficiently and avoid resource leaks.";
 
                         this.eventSink.consumeEvent(new ProfilerEvent(ProfilerEvent.TYPE_WARN, "", this.getCatalog(), this.getId(), -1, -1,
                                 System.currentTimeMillis(), 0, Constants.MILLIS_I18N, null, this.pointOfOrigin, message));
@@ -4183,7 +4183,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
                     long connectionLifeTime = System.currentTimeMillis() - this.connectionCreationTimeMillis;
 
                     if (connectionLifeTime < 500) {
-                        String message = "Connection lifetime of < .5 seconds. You might be un-necessarily creating short-lived connections and should investigate connection pooling to be more efficient.";
+                        String message = "ConnectionManager lifetime of < .5 seconds. You might be un-necessarily creating short-lived connections and should investigate connection pooling to be more efficient.";
 
                         this.eventSink.consumeEvent(new ProfilerEvent(ProfilerEvent.TYPE_WARN, "", this.getCatalog(), this.getId(), -1, -1,
                                 System.currentTimeMillis(), 0, Constants.MILLIS_I18N, null, this.pointOfOrigin, message));
@@ -4494,7 +4494,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
     /**
      * The method rollback() drops all changes made since the previous
      * commit/rollback and releases any database locks currently held by the
-     * Connection.
+     * ConnectionManager.
      * 
      * @exception SQLException
      *                if a database access error occurs
@@ -4798,7 +4798,7 @@ public class ConnectionImpl extends ConnectionPropertiesImpl implements MySQLCon
     }
 
     /**
-     * A sub-space of this Connection's database may be selected by setting a
+     * A sub-space of this ConnectionManager's database may be selected by setting a
      * catalog name. If the driver does not support catalogs, it will silently
      * ignore this request
      * <p>

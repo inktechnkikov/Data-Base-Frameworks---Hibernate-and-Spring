@@ -173,7 +173,7 @@ public class ResultSetImpl implements ResultSetInternalMethods {
     /** Keep track of columns accessed */
     protected boolean[] columnUsed = null;
 
-    /** The Connection instance that created us */
+    /** The ConnectionManager instance that created us */
     protected volatile MySQLConnection connection; // The connection that created us
 
     protected long connectionId = 0;
@@ -391,7 +391,7 @@ public class ResultSetImpl implements ResultSetInternalMethods {
      * @param tuples
      *            actual row data
      * @param conn
-     *            the Connection that created us.
+     *            the ConnectionManager that created us.
      * @param creatorStmt
      * 
      * @throws SQLException
@@ -445,7 +445,7 @@ public class ResultSetImpl implements ResultSetInternalMethods {
 
         if (this.fields != null) {
             initializeWithMetadata();
-        } // else called by Connection.initializeResultsMetadataFromCache() when cached
+        } // else called by ConnectionManager.initializeResultsMetadataFromCache() when cached
         this.useLegacyDatetimeCode = this.connection.getUseLegacyDatetimeCode();
 
         this.useColumnNamesInFindColumn = this.connection.getUseColumnNamesInFindColumn();

@@ -40,7 +40,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 
 /**
- * A proxy for a dynamic com.mysql.jdbc.Connection implementation that load balances requests across a series of MySQL JDBC connections, where the balancing
+ * A proxy for a dynamic com.mysql.jdbc.ConnectionManager implementation that load balances requests across a series of MySQL JDBC connections, where the balancing
  * takes place at transaction commit.
  * 
  * Therefore, for this to work (at all), you must use transactions, even if only reading data.
@@ -108,12 +108,12 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
     }
 
     /**
-     * Creates a proxy for java.sql.Connection that routes requests between the given list of host:port and uses the given properties when creating connections.
+     * Creates a proxy for java.sql.ConnectionManager that routes requests between the given list of host:port and uses the given properties when creating connections.
      * 
      * @param hosts
      *            The list of the hosts to load balance.
      * @param props
-     *            Connection properties from where to get initial settings and to be used in new connections.
+     *            ConnectionManager properties from where to get initial settings and to be used in new connections.
      * @throws SQLException
      */
     private LoadBalancedConnectionProxy(List<String> hosts, Properties props) throws SQLException {
@@ -227,7 +227,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
     }
 
     /**
-     * Wraps this object with a new load balanced Connection instance.
+     * Wraps this object with a new load balanced ConnectionManager instance.
      * 
      * @return
      *         The connection object instance that wraps 'this'.
@@ -354,7 +354,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
 
         // no hosts available to swap connection to, close up.
         this.isClosed = true;
-        this.closedReason = "Connection closed after inability to pick valid new connection during load-balance.";
+        this.closedReason = "ConnectionManager closed after inability to pick valid new connection during load-balance.";
     }
 
     /**
@@ -456,7 +456,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
     }
 
     /**
-     * Proxies method invocation on the java.sql.Connection interface, trapping "close", "isClosed" and "commit/rollback" to switch connections for load
+     * Proxies method invocation on the java.sql.ConnectionManager interface, trapping "close", "isClosed" and "commit/rollback" to switch connections for load
      * balancing.
      * This is the continuation of MultiHostConnectionProxy#invoke(Object, Method, Object[]).
      */
@@ -551,7 +551,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
                     // clean up underlying connections, since connection pool won't do it
                     closeAllConnections();
                     this.isClosed = true;
-                    this.closedReason = "Connection closed because ping of current connection failed.";
+                    this.closedReason = "ConnectionManager closed because ping of current connection failed.";
                     throw e;
                 }
 
@@ -577,7 +577,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
         if (!foundHost) {
             closeAllConnections();
             this.isClosed = true;
-            this.closedReason = "Connection closed due to inability to ping any active connections.";
+            this.closedReason = "ConnectionManager closed due to inability to ping any active connections.";
             // throw the stored Exception, if exists
             if (se != null) {
                 throw se;

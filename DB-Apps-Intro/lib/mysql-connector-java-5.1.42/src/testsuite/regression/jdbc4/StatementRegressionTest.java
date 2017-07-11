@@ -87,7 +87,7 @@ public class StatementRegressionTest extends BaseTestCase {
         // STEP 4: Test using connection property allowMultiQueries=true
         subTestBug68916ForAllowMultiQueries();
 
-        // STEP 5: Test concurrent Statement/ResultSet sharing same Connection
+        // STEP 5: Test concurrent Statement/ResultSet sharing same ConnectionManager
         subTestBug68916ForConcurrency();
     }
 
@@ -105,7 +105,7 @@ public class StatementRegressionTest extends BaseTestCase {
         /*
          * Testing with standard connection (no properties)
          */
-        testStep = "Standard Connection";
+        testStep = "Standard ConnectionManager";
 
         /*
          * SUB-STEP 0: The basics (connection without properties)
@@ -1373,7 +1373,7 @@ public class StatementRegressionTest extends BaseTestCase {
         int threadCount = sampleQueries.length;
 
         for (int c = 0; c < connectionProperties.length; c++) {
-            System.out.println("Test Connection with property '" + connectionProperties[c] + "'");
+            System.out.println("Test ConnectionManager with property '" + connectionProperties[c] + "'");
             Connection testConnection = getConnectionWithProps(connectionProperties[c]);
 
             for (int t = 0; t < threadCount; t++) {
@@ -1436,7 +1436,7 @@ public class StatementRegressionTest extends BaseTestCase {
 
             } catch (SQLException e) {
                 e.printStackTrace();
-                fail(threadName + ": Something went wrong, maybe Connection or Statement was closed before its time.");
+                fail(threadName + ": Something went wrong, maybe ConnectionManager or Statement was closed before its time.");
 
             } finally {
                 try {

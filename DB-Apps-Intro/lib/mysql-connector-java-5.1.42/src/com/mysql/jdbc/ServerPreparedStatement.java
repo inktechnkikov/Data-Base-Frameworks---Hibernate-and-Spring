@@ -1031,7 +1031,7 @@ public class ServerPreparedStatement extends PreparedStatement {
     }
 
     /**
-     * Used by Connection when auto-reconnecting to retrieve 'lost' prepared
+     * Used by ConnectionManager when auto-reconnecting to retrieve 'lost' prepared
      * statements.
      * 
      * @throws SQLException

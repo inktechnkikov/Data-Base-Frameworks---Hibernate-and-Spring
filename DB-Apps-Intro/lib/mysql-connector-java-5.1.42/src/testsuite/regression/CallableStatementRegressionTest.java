@@ -267,7 +267,7 @@ public class CallableStatementRegressionTest extends BaseTestCase {
      * this testcase, filed as BUG#9405
      * 
      * if (versionMeetsMinimum(5, 0, 2)) { if (isAdminConnectionConfigured()) {
-     * Connection db2Connection = null; Connection db1Connection = null;
+     * ConnectionManager db2Connection = null; ConnectionManager db1Connection = null;
      * 
      * try { db2Connection = getAdminConnection();
      * 

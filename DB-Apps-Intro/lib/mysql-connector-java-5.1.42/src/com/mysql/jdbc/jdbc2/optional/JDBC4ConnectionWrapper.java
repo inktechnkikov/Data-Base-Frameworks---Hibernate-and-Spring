@@ -227,7 +227,7 @@ public class JDBC4ConnectionWrapper extends ConnectionWrapper {
             return true;
         }
 
-        return (iface.getName().equals("com.mysql.jdbc.Connection") || iface.getName().equals("com.mysql.jdbc.ConnectionProperties"));
+        return (iface.getName().equals("com.mysql.jdbc.ConnectionManager") || iface.getName().equals("com.mysql.jdbc.ConnectionProperties"));
     }
 
     /**
@@ -251,7 +251,7 @@ public class JDBC4ConnectionWrapper extends ConnectionWrapper {
      */
     public synchronized <T> T unwrap(java.lang.Class<T> iface) throws java.sql.SQLException {
         try {
-            if ("java.sql.Connection".equals(iface.getName()) || "java.sql.Wrapper.class".equals(iface.getName())) {
+            if ("java.sql.ConnectionManager".equals(iface.getName()) || "java.sql.Wrapper.class".equals(iface.getName())) {
                 return iface.cast(this);
             }
 

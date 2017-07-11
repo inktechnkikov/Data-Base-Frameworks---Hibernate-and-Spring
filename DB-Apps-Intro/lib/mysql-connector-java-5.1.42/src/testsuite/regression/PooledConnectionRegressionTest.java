@@ -49,35 +49,35 @@ import junit.framework.TestSuite;
  * the JDBC 2.0 specification:
  * 
  * <p>
- * "Each call to PooledConnection.getConnection() must return a newly constructed Connection object that exhibits the default Connection behavior. Only the most
- * recent Connection object produced from a particular PooledConnection is open. An existing Connection object is automatically closed, if the getConnection()
- * method of its associated Pooled-Connection is called again, before it has been explicitly closed by the application. This gives the application server a way
- * to �take away� a Connection from the application if it wishes, and give it out to someone else. This capability will not likely be used frequently in
+ * "Each call to PooledConnection.getConnection() must return a newly constructed ConnectionManager object that exhibits the default ConnectionManager behavior. Only the most
+ * recent ConnectionManager object produced from a particular PooledConnection is open. An existing ConnectionManager object is automatically closed, if the getConnection()
+ * method of its associated Pooled-ConnectionManager is called again, before it has been explicitly closed by the application. This gives the application server a way
+ * to �take away� a ConnectionManager from the application if it wishes, and give it out to someone else. This capability will not likely be used frequently in
  * practice."
  * </p>
  * 
  * <p>
- * "When the application calls Connection.close(), an event is triggered that tells the connection pool it can recycle the physical database connection. In
- * other words, the event signals the connection pool that the PooledConnection object which originally produced the Connection object generating the event can
+ * "When the application calls ConnectionManager.close(), an event is triggered that tells the connection pool it can recycle the physical database connection. In
+ * other words, the event signals the connection pool that the PooledConnection object which originally produced the ConnectionManager object generating the event can
  * be put back in the connection pool."
  * </p>
  * 
  * <p>
- * "A Connection-EventListener will also be notified when a fatal error occurs, so that it can make a note not to put a bad PooledConnection object back in the
+ * "A ConnectionManager-EventListener will also be notified when a fatal error occurs, so that it can make a note not to put a bad PooledConnection object back in the
  * cache when the application finishes using it. When an error occurs, the ConnectionEventListener is notified by the JDBC driver, just before the driver throws
- * an SQLException to the application to notify it of the same error. Note that automatic closing of a Connection object as discussed in the previous section
+ * an SQLException to the application to notify it of the same error. Note that automatic closing of a ConnectionManager object as discussed in the previous section
  * does not generate a connection close event."
  * </p>
  * The JDBC 3.0 specification states the same in other words:
  * 
  * <p>
- * "The Connection.close method closes the logical handle, but the physical connection is maintained. The connection pool manager is notified that the
- * underlying PooledConnection object is now available for reuse. If the application attempts to reuse the logical handle, the Connection implementation throws
+ * "The ConnectionManager.close method closes the logical handle, but the physical connection is maintained. The connection pool manager is notified that the
+ * underlying PooledConnection object is now available for reuse. If the application attempts to reuse the logical handle, the ConnectionManager implementation throws
  * an SQLException."
  * </p>
  * 
  * <p>
- * "For a given PooledConnection object, only the most recently produced logical Connection object will be valid. Any previously existing Connection object is
+ * "For a given PooledConnection object, only the most recently produced logical ConnectionManager object will be valid. Any previously existing ConnectionManager object is
  * automatically closed when the associated PooledConnection.getConnection method is called. Listeners (connection pool managers) are not notified in this case.
  * This gives the application server a way to take a connection away from a client. This is an unlikely scenario but may be useful if the application server is
  * trying to force an orderly shutdown."
@@ -90,7 +90,7 @@ import junit.framework.TestSuite;
  * </p>
  * Even though the specification isn't clear about it, I think it is no use
  * generating a close event when calling the method PooledConnection.close(),
- * even if a logical Connection is open for this PooledConnection, bc the
+ * even if a logical ConnectionManager is open for this PooledConnection, bc the
  * PooledConnection will obviously not be returned to the pool.
  */
 public final class PooledConnectionRegressionTest extends BaseTestCase {
@@ -208,7 +208,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
     }
 
     /**
-     * Test the nb of closeEvents generated when a Connection is reclaimed. No
+     * Test the nb of closeEvents generated when a ConnectionManager is reclaimed. No
      * event should be generated in that case.
      */
     public void testConnectionReclaim() {
@@ -357,13 +357,13 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         /** */
         public void connectionClosed(ConnectionEvent event) {
             PooledConnectionRegressionTest.this.closeEventCount++;
-            System.out.println(PooledConnectionRegressionTest.this.closeEventCount + " - Connection closed.");
+            System.out.println(PooledConnectionRegressionTest.this.closeEventCount + " - ConnectionManager closed.");
         }
 
         /** */
         public void connectionErrorOccurred(ConnectionEvent event) {
             PooledConnectionRegressionTest.this.connectionErrorEventCount++;
-            System.out.println("Connection error: " + event.getSQLException());
+            System.out.println("ConnectionManager error: " + event.getSQLException());
         }
     }
 

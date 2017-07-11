@@ -42,10 +42,10 @@ import com.mysql.jdbc.Util;
 import com.mysql.jdbc.log.Log;
 
 /**
- * This class serves as a wrapper for the org.gjt.mm.mysql.jdbc2.Connection class. It is returned to the application server which may wrap it again and then
+ * This class serves as a wrapper for the org.gjt.mm.mysql.jdbc2.ConnectionManager class. It is returned to the application server which may wrap it again and then
  * return it to the application client in response to dataSource.getConnection().
  * 
- * All method invocations are forwarded to org.gjt.mm.mysql.jdbc2.Connection unless the close method was previously called, in which case a sqlException is
+ * All method invocations are forwarded to org.gjt.mm.mysql.jdbc2.ConnectionManager unless the close method was previously called, in which case a sqlException is
  * thrown. The close method performs a 'logical close' on the connection.
  * 
  * All sqlExceptions thrown by the physical connection are intercepted and sent to connectionEvent listeners before being thrown to client.

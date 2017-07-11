@@ -266,7 +266,7 @@ public class DataSourceRegressionTest extends BaseTestCase {
                     dsStmt.executeUpdate("DROP TABLE IF EXISTS testBug3920");
                     dsStmt.executeUpdate("CREATE TABLE testBug3920 (field1 varchar(32))");
 
-                    assertTrue("Connection can not be obtained from data source", dsCon != null);
+                    assertTrue("ConnectionManager can not be obtained from data source", dsCon != null);
                 } finally {
                     if (dsStmt != null) {
                         dsStmt.executeUpdate("DROP TABLE IF EXISTS testBug3920");
@@ -472,7 +472,7 @@ public class DataSourceRegressionTest extends BaseTestCase {
 
     /**
      * Tests fix for BUG#32101 - When using a connection from our ConnectionPoolDataSource,
-     * some Connection.prepareStatement() methods would return null instead of
+     * some ConnectionManager.prepareStatement() methods would return null instead of
      * a prepared statement.
      * 
      * @throws Exception
@@ -558,7 +558,7 @@ public class DataSourceRegressionTest extends BaseTestCase {
                 this.rs.close();
                 if (connIsAlive) {
                     connAliveChecks--;
-                    System.out.println("Connection id " + connId + " is still alive. Checking " + connAliveChecks + " more times.");
+                    System.out.println("ConnectionManager id " + connId + " is still alive. Checking " + connAliveChecks + " more times.");
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
@@ -568,10 +568,10 @@ public class DataSourceRegressionTest extends BaseTestCase {
                 }
             }
             if (connAliveChecks == 0) {
-                fail("Failed to kill the Connection id " + connId + " in a timely manner.");
+                fail("Failed to kill the ConnectionManager id " + connId + " in a timely manner.");
             }
 
-            XAException xaEx = assertThrows(XAException.class, "Undetermined error occurred in the underlying Connection - check your data for consistency",
+            XAException xaEx = assertThrows(XAException.class, "Undetermined error occurred in the underlying ConnectionManager - check your data for consistency",
                     new Callable<Void>() {
                         public Void call() throws Exception {
                             xaRes.commit(xid, false);

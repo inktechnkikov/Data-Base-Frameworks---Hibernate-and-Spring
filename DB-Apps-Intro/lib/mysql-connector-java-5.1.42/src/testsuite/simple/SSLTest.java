@@ -61,7 +61,7 @@ public class SSLTest extends BaseTestCase {
     }
 
     /**
-     * Tests SSL Connection
+     * Tests SSL ConnectionManager
      * 
      * @throws Exception
      *             if an error occurs

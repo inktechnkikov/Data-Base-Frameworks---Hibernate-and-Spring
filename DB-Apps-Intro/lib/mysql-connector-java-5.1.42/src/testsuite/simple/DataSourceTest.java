@@ -122,11 +122,11 @@ public class DataSourceTest extends BaseTestCase {
 
         Connection con = boundDs.getConnection();
         con.close();
-        assertTrue("Connection can not be obtained from data source", con != null);
+        assertTrue("ConnectionManager can not be obtained from data source", con != null);
     }
 
     /**
-     * Tests whether Connection.changeUser() (and thus pooled connections)
+     * Tests whether ConnectionManager.changeUser() (and thus pooled connections)
      * restore character set information correctly.
      * 
      * @throws Exception

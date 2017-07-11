@@ -45,7 +45,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
     }
 
     /**
-     * Tests fix for Bug#75615 - Incorrect implementation of Connection.setNetworkTimeout().
+     * Tests fix for Bug#75615 - Incorrect implementation of ConnectionManager.setNetworkTimeout().
      * 
      * Note: this test exploits a non deterministic race condition. Usually the failure was observed under 10 consecutive executions, as such the siginficant
      * part of the test is run up to 25 times.

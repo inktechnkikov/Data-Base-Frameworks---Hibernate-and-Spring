@@ -133,7 +133,7 @@ public class ConnectionGroup {
     }
 
     /**
-     * Remove the given host (host:port pair) from this Connection Group.
+     * Remove the given host (host:port pair) from this ConnectionManager Group.
      * 
      * @param hostPortPair
      *            The host:port pair to remove.
@@ -144,7 +144,7 @@ public class ConnectionGroup {
     }
 
     /**
-     * Remove the given host (host:port pair) from this Connection Group.
+     * Remove the given host (host:port pair) from this ConnectionManager Group.
      * 
      * @param hostPortPair
      *            The host:port pair to remove.
@@ -157,7 +157,7 @@ public class ConnectionGroup {
     }
 
     /**
-     * Remove the given host (host:port pair) from this Connection Group and, consequently, from all the load-balanced connections it holds.
+     * Remove the given host (host:port pair) from this ConnectionManager Group and, consequently, from all the load-balanced connections it holds.
      * 
      * @param hostPortPair
      *            The host:port pair to remove.
@@ -198,7 +198,7 @@ public class ConnectionGroup {
     }
 
     /**
-     * Add the given host (host:port pair) to this Connection Group.
+     * Add the given host (host:port pair) to this ConnectionManager Group.
      * 
      * @param hostPortPair
      *            The host:port pair to add.
@@ -209,7 +209,7 @@ public class ConnectionGroup {
     }
 
     /**
-     * Add the given host (host:port pair) to this Connection Group and, consequently, to all the load-balanced connections it holds.
+     * Add the given host (host:port pair) to this ConnectionManager Group and, consequently, to all the load-balanced connections it holds.
      * 
      * @param hostPortPair
      *            The host:port pair to add.

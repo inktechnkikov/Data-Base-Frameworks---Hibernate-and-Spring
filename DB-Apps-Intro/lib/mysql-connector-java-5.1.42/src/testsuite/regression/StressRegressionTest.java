@@ -311,7 +311,7 @@ public class StressRegressionTest extends BaseTestCase {
      * Tests fix for BUG#67760 - Deadlock when concurrently executing prepared statements with Timestamp objects
      * 
      * Concurrent execution of Timestamp, Date and Time related setters and getters from a PreparedStatement and ResultSet object obtained from a same shared
-     * Connection may result in a deadlock.
+     * ConnectionManager may result in a deadlock.
      * 
      * This test exploits a non-deterministic situation that can end in a deadlock. It executes two concurrent jobs for 10 seconds while stressing the referred
      * methods. The deadlock was observed before 3 seconds have elapsed, all times, in development environment.
@@ -324,12 +324,12 @@ public class StressRegressionTest extends BaseTestCase {
      */
     public void testBug67760() throws Exception {
         /*
-         * Use a brand new Connection not shared by anyone else, otherwise it may block later on test teardown.
+         * Use a brand new ConnectionManager not shared by anyone else, otherwise it may block later on test teardown.
          */
         final Connection testConn = getConnectionWithProps("");
 
         /*
-         * Thread to execute set[Timestamp|Date|Time]() methods in an instance of a PreparedStatement constructed from a shared Connection.
+         * Thread to execute set[Timestamp|Date|Time]() methods in an instance of a PreparedStatement constructed from a shared ConnectionManager.
          */
         Thread job1 = new Thread(new Runnable() {
             public void run() {
@@ -360,7 +360,7 @@ public class StressRegressionTest extends BaseTestCase {
 
         /*
          * Thread to execute get[Timestamp|Date|Time]() methods in an instance of a ResultSet obtained from a PreparedStatement constructed from a shared
-         * Connection.
+         * ConnectionManager.
          */
         Thread job2 = new Thread(new Runnable() {
             public void run() {

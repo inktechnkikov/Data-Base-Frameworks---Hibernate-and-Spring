@@ -306,7 +306,7 @@ public class StatementImpl implements Statement {
      * Constructor for a Statement.
      * 
      * @param c
-     *            the Connection instance that creates us
+     *            the ConnectionManager instance that creates us
      * @param catalog
      *            the database name in use when we were created
      * 
@@ -1645,9 +1645,9 @@ public class StatementImpl implements Statement {
     }
 
     /**
-     * JDBC 2.0 Return the Connection that produced the Statement.
+     * JDBC 2.0 Return the ConnectionManager that produced the Statement.
      * 
-     * @return the Connection that produced the Statement
+     * @return the ConnectionManager that produced the Statement
      * 
      * @throws SQLException
      *             if an error occurs
@@ -1794,7 +1794,7 @@ public class StatementImpl implements Statement {
      * executeQuery() or excute() call.
      * 
      * <p>
-     * This gets around the un-threadsafe behavior of "select LAST_INSERT_ID()" which is tied to the Connection that created this Statement, and therefore could
+     * This gets around the un-threadsafe behavior of "select LAST_INSERT_ID()" which is tied to the ConnectionManager that created this Statement, and therefore could
      * have had many INSERTS performed before one gets a chance to call "select LAST_INSERT_ID()".
      * </p>
      * 

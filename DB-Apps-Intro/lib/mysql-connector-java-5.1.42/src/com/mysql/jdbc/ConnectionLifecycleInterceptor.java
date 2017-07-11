@@ -34,7 +34,7 @@ import java.sql.Savepoint;
  */
 public interface ConnectionLifecycleInterceptor extends Extension {
     /**
-     * Called when an application calls Connection.close(), before the driver
+     * Called when an application calls ConnectionManager.close(), before the driver
      * processes its own internal logic for close.
      * 
      * @throws SQLException
@@ -42,7 +42,7 @@ public interface ConnectionLifecycleInterceptor extends Extension {
     public abstract void close() throws SQLException;
 
     /**
-     * Called when an application calls Connection.commit(), before the
+     * Called when an application calls ConnectionManager.commit(), before the
      * driver processes its own internal logic for commit().
      * 
      * Interceptors should return "true" if the driver should perform
@@ -57,7 +57,7 @@ public interface ConnectionLifecycleInterceptor extends Extension {
     public abstract boolean commit() throws SQLException;
 
     /**
-     * Called when an application calls Connection.rollback(), before the
+     * Called when an application calls ConnectionManager.rollback(), before the
      * driver processes its own internal logic for rollback().
      * 
      * Interceptors should return "true" if the driver should perform
@@ -72,7 +72,7 @@ public interface ConnectionLifecycleInterceptor extends Extension {
     public abstract boolean rollback() throws SQLException;
 
     /**
-     * Called when an application calls Connection.rollback(), before the
+     * Called when an application calls ConnectionManager.rollback(), before the
      * driver processes its own internal logic for rollback().
      * 
      * Interceptors should return "true" if the driver should perform
@@ -87,7 +87,7 @@ public interface ConnectionLifecycleInterceptor extends Extension {
     public abstract boolean rollback(Savepoint s) throws SQLException;
 
     /**
-     * Called when an application calls Connection.setAutoCommit(), before the
+     * Called when an application calls ConnectionManager.setAutoCommit(), before the
      * driver processes its own internal logic for setAutoCommit().
      * 
      * Interceptors should return "true" if the driver should perform
@@ -102,7 +102,7 @@ public interface ConnectionLifecycleInterceptor extends Extension {
     public abstract boolean setAutoCommit(boolean flag) throws SQLException;
 
     /**
-     * Called when an application calls Connection.setCatalog(), before the
+     * Called when an application calls ConnectionManager.setCatalog(), before the
      * driver processes its own internal logic for setCatalog().
      * 
      * Interceptors should return "true" if the driver should perform

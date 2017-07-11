@@ -5,7 +5,7 @@ import java.sql.*;
 public class Main {
     public static void main(String[] args) throws SQLException {
         try(Connection testConnection = DriverManager.getConnection(DBConst.dbConnet,DBConst.usernName,DBConst.passWord)) {
-            System.out.println("Connection successful");
+            System.out.println("ConnectionManager successful");
             try(Statement statement = testConnection.createStatement()){
                String query = "CREATE TABLE IF NOT EXISTS teachers (" +
                        "id int AUTO_INCREMENT PRIMARY KEY," +

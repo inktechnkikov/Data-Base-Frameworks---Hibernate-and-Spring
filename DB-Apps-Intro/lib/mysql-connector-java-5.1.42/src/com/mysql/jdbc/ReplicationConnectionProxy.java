@@ -33,7 +33,7 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 /**
- * Connection that opens two connections, one two a replication master, and another to one or more slaves, and decides to use master when the connection is not
+ * ConnectionManager that opens two connections, one two a replication master, and another to one or more slaves, and decides to use master when the connection is not
  * read-only, and use slave(s) when the connection is read-only.
  */
 public class ReplicationConnectionProxy extends MultiHostConnectionProxy implements PingTarget {
@@ -88,7 +88,7 @@ public class ReplicationConnectionProxy extends MultiHostConnectionProxy impleme
     }
 
     /**
-     * Creates a proxy for java.sql.Connection that routes requests to a load-balanced connection of master servers or a load-balanced connection of slave
+     * Creates a proxy for java.sql.ConnectionManager that routes requests to a load-balanced connection of master servers or a load-balanced connection of slave
      * servers. Each sub-connection is created with its own set of independent properties.
      * 
      * @param masterHostList
@@ -203,7 +203,7 @@ public class ReplicationConnectionProxy extends MultiHostConnectionProxy impleme
     }
 
     /**
-     * Wraps this object with a new replication Connection instance.
+     * Wraps this object with a new replication ConnectionManager instance.
      * 
      * @return
      *         The connection object instance that wraps 'this'.
@@ -296,7 +296,7 @@ public class ReplicationConnectionProxy extends MultiHostConnectionProxy impleme
     }
 
     /**
-     * Proxies method invocation on the java.sql.Connection interface.
+     * Proxies method invocation on the java.sql.ConnectionManager interface.
      * This is the continuation of MultiHostConnectionProxy#invoke(Object, Method, Object[]).
      */
     @Override

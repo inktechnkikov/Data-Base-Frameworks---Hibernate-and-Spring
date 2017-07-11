@@ -2856,7 +2856,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
 
     /**
      * What's the database's default transaction isolation level? The values are
-     * defined in java.sql.Connection.
+     * defined in java.sql.ConnectionManager.
      * 
      * @return the default isolation level
      * @throws SQLException
@@ -7633,7 +7633,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
      * Does the database support the given transaction isolation level?
      * 
      * @param level
-     *            the values are defined in java.sql.Connection
+     *            the values are defined in java.sql.ConnectionManager
      * @return true if so
      * @throws SQLException
      *             if a database access error occurs

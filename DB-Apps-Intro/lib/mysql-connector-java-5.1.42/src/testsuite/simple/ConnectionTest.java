@@ -69,7 +69,7 @@ import testsuite.BaseStatementInterceptor;
 import testsuite.BaseTestCase;
 
 /**
- * Tests java.sql.Connection functionality
+ * Tests java.sql.ConnectionManager functionality
  */
 public class ConnectionTest extends BaseTestCase {
     /**
@@ -529,8 +529,8 @@ public class ConnectionTest extends BaseTestCase {
      */
     public void testIsolationLevel() throws Exception {
         if (versionMeetsMinimum(4, 0)) {
-            String[] isoLevelNames = new String[] { "Connection.TRANSACTION_NONE", "Connection.TRANSACTION_READ_COMMITTED",
-                    "Connection.TRANSACTION_READ_UNCOMMITTED", "Connection.TRANSACTION_REPEATABLE_READ", "Connection.TRANSACTION_SERIALIZABLE" };
+            String[] isoLevelNames = new String[] { "ConnectionManager.TRANSACTION_NONE", "ConnectionManager.TRANSACTION_READ_COMMITTED",
+                    "ConnectionManager.TRANSACTION_READ_UNCOMMITTED", "ConnectionManager.TRANSACTION_REPEATABLE_READ", "ConnectionManager.TRANSACTION_SERIALIZABLE" };
 
             int[] isolationLevels = new int[] { Connection.TRANSACTION_NONE, Connection.TRANSACTION_READ_COMMITTED, Connection.TRANSACTION_READ_UNCOMMITTED,
                     Connection.TRANSACTION_REPEATABLE_READ, Connection.TRANSACTION_SERIALIZABLE };
@@ -897,9 +897,9 @@ public class ConnectionTest extends BaseTestCase {
                 failoverConnection = getConnectionWithProps(props);
 
                 String originalConnectionId = getSingleIndexedValueWithQuery(failoverConnection, 1, "SELECT connection_id()").toString();
-                System.out.println("Original Connection Id = " + originalConnectionId);
+                System.out.println("Original ConnectionManager Id = " + originalConnectionId);
 
-                assertTrue("Connection should not be in READ_ONLY state", !failoverConnection.isReadOnly());
+                assertTrue("ConnectionManager should not be in READ_ONLY state", !failoverConnection.isReadOnly());
 
                 // Kill the connection
                 this.stmt.executeUpdate("KILL " + originalConnectionId);
@@ -920,10 +920,10 @@ public class ConnectionTest extends BaseTestCase {
                 failoverConnection.setAutoCommit(true);
 
                 String newConnectionId = getSingleIndexedValueWithQuery(failoverConnection, 1, "SELECT connection_id()").toString();
-                System.out.println("new Connection Id = " + newConnectionId);
+                System.out.println("new ConnectionManager Id = " + newConnectionId);
 
                 assertTrue("We should have a new connection to the server in this case", !newConnectionId.equals(originalConnectionId));
-                assertTrue("Connection should not be read-only", !failoverConnection.isReadOnly());
+                assertTrue("ConnectionManager should not be read-only", !failoverConnection.isReadOnly());
             } finally {
                 if (failoverConnection != null) {
                     failoverConnection.close();
@@ -1587,7 +1587,7 @@ public class ConnectionTest extends BaseTestCase {
         }
 
         if (!failed) {
-            fail("Connection should've self-destructed");
+            fail("ConnectionManager should've self-destructed");
         }
 
         failed = false;
@@ -1611,7 +1611,7 @@ public class ConnectionTest extends BaseTestCase {
         }
 
         if (!failed) {
-            fail("Connection should've self-destructed");
+            fail("ConnectionManager should've self-destructed");
         }
     }
 
@@ -1745,7 +1745,7 @@ public class ConnectionTest extends BaseTestCase {
     }
 
     /**
-     * IPv6 Connection test.
+     * IPv6 ConnectionManager test.
      * 
      * @throws SQLException
      */

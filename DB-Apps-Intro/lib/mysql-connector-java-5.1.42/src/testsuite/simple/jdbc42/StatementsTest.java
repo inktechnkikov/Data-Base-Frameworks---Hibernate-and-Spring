@@ -175,7 +175,7 @@ public class StatementsTest extends BaseTestCase {
 
         final Statement stmtTmp = this.stmt;
         assertThrows(SQLException.class, "Generated keys not requested. You need to specify Statement.RETURN_GENERATED_KEYS to Statement.executeUpdate\\(\\), "
-                + "Statement.executeLargeUpdate\\(\\) or Connection.prepareStatement\\(\\).", new Callable<Void>() {
+                + "Statement.executeLargeUpdate\\(\\) or ConnectionManager.prepareStatement\\(\\).", new Callable<Void>() {
                     public Void call() throws Exception {
                         stmtTmp.getGeneratedKeys();
                         return null;
@@ -343,7 +343,7 @@ public class StatementsTest extends BaseTestCase {
 
         final Statement stmtTmp = this.pstmt;
         assertThrows(SQLException.class, "Generated keys not requested. You need to specify Statement.RETURN_GENERATED_KEYS to Statement.executeUpdate\\(\\), "
-                + "Statement.executeLargeUpdate\\(\\) or Connection.prepareStatement\\(\\).", new Callable<Void>() {
+                + "Statement.executeLargeUpdate\\(\\) or ConnectionManager.prepareStatement\\(\\).", new Callable<Void>() {
                     public Void call() throws Exception {
                         stmtTmp.getGeneratedKeys();
                         return null;

@@ -31,7 +31,7 @@ import java.util.concurrent.Executor;
 import com.mysql.jdbc.log.Log;
 
 /**
- * This interface contains methods that are considered the "vendor extension" to the JDBC API for MySQL's implementation of java.sql.Connection.
+ * This interface contains methods that are considered the "vendor extension" to the JDBC API for MySQL's implementation of java.sql.ConnectionManager.
  * 
  * For those looking further into the driver implementation, it is not an API that is used for plugability of implementations inside our driver
  * (which is why there are still references to ConnectionImpl throughout the code).
@@ -59,7 +59,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the client, using client-side emulation
      * (irregardless of the configuration property 'useServerPrepStmts')
-     * with the same semantics as the java.sql.Connection.prepareStatement()
+     * with the same semantics as the java.sql.ConnectionManager.prepareStatement()
      * method with the same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String)
@@ -69,7 +69,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the client, using client-side emulation
      * (irregardless of the configuration property 'useServerPrepStmts')
-     * with the same semantics as the java.sql.Connection.prepareStatement()
+     * with the same semantics as the java.sql.ConnectionManager.prepareStatement()
      * method with the same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, int)
@@ -79,7 +79,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the client, using client-side emulation
      * (irregardless of the configuration property 'useServerPrepStmts')
-     * with the same semantics as the java.sql.Connection.prepareStatement()
+     * with the same semantics as the java.sql.ConnectionManager.prepareStatement()
      * method with the same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, int, int)
@@ -89,7 +89,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the client, using client-side emulation
      * (irregardless of the configuration property 'useServerPrepStmts')
-     * with the same semantics as the java.sql.Connection.prepareStatement()
+     * with the same semantics as the java.sql.ConnectionManager.prepareStatement()
      * method with the same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, int[])
@@ -99,7 +99,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the client, using client-side emulation
      * (irregardless of the configuration property 'useServerPrepStmts')
-     * with the same semantics as the java.sql.Connection.prepareStatement()
+     * with the same semantics as the java.sql.ConnectionManager.prepareStatement()
      * method with the same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, int, int, int)
@@ -110,7 +110,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the client, using client-side emulation
      * (irregardless of the configuration property 'useServerPrepStmts')
-     * with the same semantics as the java.sql.Connection.prepareStatement()
+     * with the same semantics as the java.sql.ConnectionManager.prepareStatement()
      * method with the same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, String[])
@@ -135,7 +135,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
 
     /**
      * Returns the log mechanism that should be used to log information from/for
-     * this Connection.
+     * this ConnectionManager.
      * 
      * @return the Log instance to use for logging messages.
      * @throws SQLException
@@ -147,7 +147,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
      * Returns the server's character set
      * 
      * @return the server's character set.
-     * @deprecated replaced by <code>Connection.getServerCharset()</code>
+     * @deprecated replaced by <code>ConnectionManager.getServerCharset()</code>
      */
     @Deprecated
     public abstract String getServerCharacterEncoding();
@@ -253,7 +253,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the server (irregardless of the
      * configuration property 'useServerPrepStmts') with the same semantics
-     * as the java.sql.Connection.prepareStatement() method with the
+     * as the java.sql.ConnectionManager.prepareStatement() method with the
      * same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String)
@@ -263,7 +263,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the server (irregardless of the
      * configuration property 'useServerPrepStmts') with the same semantics
-     * as the java.sql.Connection.prepareStatement() method with the
+     * as the java.sql.ConnectionManager.prepareStatement() method with the
      * same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, int)
@@ -273,7 +273,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the server (irregardless of the
      * configuration property 'useServerPrepStmts') with the same semantics
-     * as the java.sql.Connection.prepareStatement() method with the
+     * as the java.sql.ConnectionManager.prepareStatement() method with the
      * same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, int, int)
@@ -283,7 +283,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the server (irregardless of the
      * configuration property 'useServerPrepStmts') with the same semantics
-     * as the java.sql.Connection.prepareStatement() method with the
+     * as the java.sql.ConnectionManager.prepareStatement() method with the
      * same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, int, int, int)
@@ -294,7 +294,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the server (irregardless of the
      * configuration property 'useServerPrepStmts') with the same semantics
-     * as the java.sql.Connection.prepareStatement() method with the
+     * as the java.sql.ConnectionManager.prepareStatement() method with the
      * same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, int[])
@@ -304,7 +304,7 @@ public interface Connection extends java.sql.Connection, ConnectionProperties {
     /**
      * Prepares a statement on the server (irregardless of the
      * configuration property 'useServerPrepStmts') with the same semantics
-     * as the java.sql.Connection.prepareStatement() method with the
+     * as the java.sql.ConnectionManager.prepareStatement() method with the
      * same argument types.
      * 
      * @see java.sql.Connection#prepareStatement(String, String[])

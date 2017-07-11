@@ -604,7 +604,7 @@ public class StatementsTest extends BaseTestCase {
         try {
             conn2.createNClob();
         } catch (SQLException e) {
-            fail("Unable to call Connection.createNClob() in load-balanced connection");
+            fail("Unable to call ConnectionManager.createNClob() in load-balanced connection");
         }
 
     }

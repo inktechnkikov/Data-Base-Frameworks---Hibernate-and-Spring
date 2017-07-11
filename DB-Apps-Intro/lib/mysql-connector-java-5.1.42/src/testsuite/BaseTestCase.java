@@ -84,7 +84,7 @@ public abstract class BaseTestCase extends TestCase {
     /** Instance counter */
     private static int instanceCount = 1;
 
-    /** Connection to server, initialized in setUp() Cleaned up in tearDown(). */
+    /** ConnectionManager to server, initialized in setUp() Cleaned up in tearDown(). */
     protected Connection conn = null;
 
     protected Connection sha256Conn = null;

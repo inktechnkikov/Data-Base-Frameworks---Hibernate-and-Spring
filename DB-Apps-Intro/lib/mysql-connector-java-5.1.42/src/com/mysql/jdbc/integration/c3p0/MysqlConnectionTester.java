@@ -55,7 +55,7 @@ public final class MysqlConnectionTester implements QueryConnectionTester {
     /*
      * (non-Javadoc)
      * 
-     * @see com.mchange.v2.c3p0.ConnectionTester#activeCheckConnection(java.sql.Connection)
+     * @see com.mchange.v2.c3p0.ConnectionTester#activeCheckConnection(java.sql.ConnectionManager)
      */
     public int activeCheckConnection(Connection con) {
         try {
@@ -90,7 +90,7 @@ public final class MysqlConnectionTester implements QueryConnectionTester {
     /*
      * (non-Javadoc)
      * 
-     * @see com.mchange.v2.c3p0.ConnectionTester#statusOnException(java.sql.Connection, java.lang.Throwable)
+     * @see com.mchange.v2.c3p0.ConnectionTester#statusOnException(java.sql.ConnectionManager, java.lang.Throwable)
      */
     public int statusOnException(Connection arg0, Throwable throwable) {
         if (throwable instanceof CommunicationsException || "com.mysql.jdbc.exceptions.jdbc4.CommunicationsException".equals(throwable.getClass().getName())) {
@@ -115,7 +115,7 @@ public final class MysqlConnectionTester implements QueryConnectionTester {
     /*
      * (non-Javadoc)
      * 
-     * @see com.mchange.v2.c3p0.QueryConnectionTester#activeCheckConnection(java.sql.Connection, java.lang.String)
+     * @see com.mchange.v2.c3p0.QueryConnectionTester#activeCheckConnection(java.sql.ConnectionManager, java.lang.String)
      */
     public int activeCheckConnection(Connection arg0, String arg1) {
         return CONNECTION_IS_OKAY;

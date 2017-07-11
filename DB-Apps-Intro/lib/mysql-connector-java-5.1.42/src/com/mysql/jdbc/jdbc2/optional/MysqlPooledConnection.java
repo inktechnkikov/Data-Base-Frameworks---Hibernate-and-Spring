@@ -145,7 +145,7 @@ public class MysqlPooledConnection implements PooledConnection {
     protected synchronized Connection getConnection(boolean resetServerState, boolean forXa) throws SQLException {
         if (this.physicalConn == null) {
 
-            SQLException sqlException = SQLError.createSQLException("Physical Connection doesn't exist", this.exceptionInterceptor);
+            SQLException sqlException = SQLError.createSQLException("Physical ConnectionManager doesn't exist", this.exceptionInterceptor);
             callConnectionEventListeners(CONNECTION_ERROR_EVENT, sqlException);
 
             throw sqlException;

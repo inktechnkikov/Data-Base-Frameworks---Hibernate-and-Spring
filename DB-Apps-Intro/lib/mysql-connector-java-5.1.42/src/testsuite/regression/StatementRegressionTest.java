@@ -2362,7 +2362,7 @@ public class StatementRegressionTest extends BaseTestCase {
      * "testBug9288"; PreparedStatement pStmt = null;
      * 
      * try { createTable(tableName, "(field1 VARCHAR(32), field2 INT)"); pStmt =
-     * ((com.mysql.jdbc.Connection)this.conn).clientPrepareStatement( "SELECT
+     * ((com.mysql.jdbc.ConnectionManager)this.conn).clientPrepareStatement( "SELECT
      * COUNT(1) FROM " + tableName + " WHERE " + "field1 LIKE '%' ESCAPE '\\'
      * AND " + "field2 > ?"); pStmt.setInt(1, 0);
      * 
@@ -2913,7 +2913,7 @@ public class StatementRegressionTest extends BaseTestCase {
                     break;
                 }
 
-                fail("Connection didn't close while in the middle of PreparedStatement.executeBatch()");
+                fail("ConnectionManager didn't close while in the middle of PreparedStatement.executeBatch()");
             } finally {
                 if (toBeKilledPstmt != null) {
                     toBeKilledPstmt.close();
@@ -5970,7 +5970,7 @@ public class StatementRegressionTest extends BaseTestCase {
             PrintStream systemErrBackup = null;
             ByteArrayOutputStream systemErrDetour = null;
 
-            // Connection handling
+            // ConnectionManager handling
             Connection testConn = null;
 
             TestHandler() {
@@ -6220,7 +6220,7 @@ public class StatementRegressionTest extends BaseTestCase {
         this.stmt.execute("INSERT INTO testBug71396 VALUES ('One'), ('Two'), ('Three')");
 
         /*
-         * Case 1: Statement.executeQuery() and Statement.execute() with plain Connection.
+         * Case 1: Statement.executeQuery() and Statement.execute() with plain ConnectionManager.
          */
         testConn = getConnectionWithProps("");
 
@@ -6233,7 +6233,7 @@ public class StatementRegressionTest extends BaseTestCase {
         // check results count using the same Statement[maxRows = 1] for all queries
         testBug71396StatementMultiCheck(testStmt, queries, new int[] { 1, 1, 1, 1, 1 });
 
-        // check results count using same Connection and one new Statement[default maxRows] per query
+        // check results count using same ConnectionManager and one new Statement[default maxRows] per query
         testBug71396StatementMultiCheck(testConn, queries, new int[] { 2, 4, 3, 3, 3 });
 
         // recheck results count reusing the first Statement[maxRows = 1] for all queries - confirm maxRows wasn't lost
@@ -6243,7 +6243,7 @@ public class StatementRegressionTest extends BaseTestCase {
         testConn.close();
 
         /*
-         * Case 2: PreparedStatement.executeQuery() and PreparedStatement.execute() with plain Connection.
+         * Case 2: PreparedStatement.executeQuery() and PreparedStatement.execute() with plain ConnectionManager.
          */
         testConn = getConnectionWithProps("");
 
@@ -6256,10 +6256,10 @@ public class StatementRegressionTest extends BaseTestCase {
         // initialize a set of PreparedStatements with a given maxRow value, keep open until end of the case
         testPStmtSet = testBug71396PrepStatementInit(testConn, queries, 1);
 
-        // check results count using same Connection and one PreparedStatement[maxRows = 1] per query
+        // check results count using same ConnectionManager and one PreparedStatement[maxRows = 1] per query
         testBug71396PrepStatementMultiCheck(testPStmtSet, queries, new int[] { 1, 1, 1, 1, 1 });
 
-        // check results count using same Connection and one new PreparedStatement[default maxRows] per query
+        // check results count using same ConnectionManager and one new PreparedStatement[default maxRows] per query
         testBug71396PrepStatementMultiCheck(testConn, queries, new int[] { 2, 4, 3, 3, 3 });
 
         // check results count reusing the first PreparedStatement[maxRows = 1] per query - confirm maxRows wasn't lost
@@ -6271,7 +6271,7 @@ public class StatementRegressionTest extends BaseTestCase {
 
         /*
          * Case 3: PreparedStatement.executeQuery() and PreparedStatement.execute() with
-         * Connection[useServerPrepStmts=true].
+         * ConnectionManager[useServerPrepStmts=true].
          */
         testConn = getConnectionWithProps("useServerPrepStmts=true");
 
@@ -6284,10 +6284,10 @@ public class StatementRegressionTest extends BaseTestCase {
         // initialize a set of PreparedStatements with a given maxRow value, keep open until end of the case
         testPStmtSet = testBug71396PrepStatementInit(testConn, queries, 1);
 
-        // check results count using same Connection and one PreparedStatement[maxRows = 1] per query
+        // check results count using same ConnectionManager and one PreparedStatement[maxRows = 1] per query
         testBug71396PrepStatementMultiCheck(testPStmtSet, queries, new int[] { 1, 1, 1, 1, 1 });
 
-        // check results count using same Connection and one new PreparedStatement[default maxRows] per query
+        // check results count using same ConnectionManager and one new PreparedStatement[default maxRows] per query
         testBug71396PrepStatementMultiCheck(testConn, queries, new int[] { 2, 4, 3, 3, 3 });
 
         // check results count reusing the first PreparedStatement[maxRows = 1] per query - confirm maxRows wasn't lost
@@ -6298,7 +6298,7 @@ public class StatementRegressionTest extends BaseTestCase {
         testConn.close();
 
         /*
-         * Case 4: Statement.executeQuery() and Statement.execute() with Connection[maxRows=2].
+         * Case 4: Statement.executeQuery() and Statement.execute() with ConnectionManager[maxRows=2].
          */
         testConn = getConnectionWithProps("maxRows=2");
 
@@ -6311,7 +6311,7 @@ public class StatementRegressionTest extends BaseTestCase {
         // check results count using the same Statement[maxRows = 1] for all queries
         testBug71396StatementMultiCheck(testStmt, queries, new int[] { 1, 1, 1, 1, 1 });
 
-        // check results count using same Connection and one new Statement[default maxRows] per query
+        // check results count using same ConnectionManager and one new Statement[default maxRows] per query
         testBug71396StatementMultiCheck(testConn, queries, new int[] { 2, 2, 2, 2, 2 });
 
         // recheck results count reusing the first Statement[maxRows = 1] for all queries - confirm maxRows wasn't lost
@@ -6321,7 +6321,7 @@ public class StatementRegressionTest extends BaseTestCase {
         testConn.close();
 
         /*
-         * Case 5: PreparedStatement.executeQuery() and PreparedStatement.execute() with Connection[maxRows=2].
+         * Case 5: PreparedStatement.executeQuery() and PreparedStatement.execute() with ConnectionManager[maxRows=2].
          */
         testConn = getConnectionWithProps("maxRows=2");
 
@@ -6334,10 +6334,10 @@ public class StatementRegressionTest extends BaseTestCase {
         // initialize a set of PreparedStatements with a given maxRow value, keep open until end of the case
         testPStmtSet = testBug71396PrepStatementInit(testConn, queries, 1);
 
-        // check results count using same Connection and one PreparedStatement[maxRows = 1] per query
+        // check results count using same ConnectionManager and one PreparedStatement[maxRows = 1] per query
         testBug71396PrepStatementMultiCheck(testPStmtSet, queries, new int[] { 1, 1, 1, 1, 1 });
 
-        // check results count using same Connection and one new PreparedStatement[default maxRows] per query
+        // check results count using same ConnectionManager and one new PreparedStatement[default maxRows] per query
         testBug71396PrepStatementMultiCheck(testConn, queries, new int[] { 2, 2, 2, 2, 2 });
 
         // check results count reusing the first PreparedStatement[maxRows = 1] per query - confirm maxRows wasn't lost
@@ -6349,7 +6349,7 @@ public class StatementRegressionTest extends BaseTestCase {
 
         /*
          * Case 6: PreparedStatement.executeQuery() and PreparedStatement.execute() with
-         * Connection[useServerPrepStmts=true;maxRows=2].
+         * ConnectionManager[useServerPrepStmts=true;maxRows=2].
          */
         testConn = getConnectionWithProps("maxRows=2,useServerPrepStmts=true");
 
@@ -6362,10 +6362,10 @@ public class StatementRegressionTest extends BaseTestCase {
         // initialize a set of PreparedStatements with a given maxRow value, keep open until end of the case
         testPStmtSet = testBug71396PrepStatementInit(testConn, queries, 1);
 
-        // check results count using same Connection and one PreparedStatement[maxRows = 1] per query
+        // check results count using same ConnectionManager and one PreparedStatement[maxRows = 1] per query
         testBug71396PrepStatementMultiCheck(testPStmtSet, queries, new int[] { 1, 1, 1, 1, 1 });
 
-        // check results count using same Connection and one new PreparedStatement[default maxRows] per query
+        // check results count using same ConnectionManager and one new PreparedStatement[default maxRows] per query
         testBug71396PrepStatementMultiCheck(testConn, queries, new int[] { 2, 2, 2, 2, 2 });
 
         // check results count reusing the first PreparedStatement[maxRows = 1] per query - confirm maxRows wasn't lost
@@ -6592,7 +6592,7 @@ public class StatementRegressionTest extends BaseTestCase {
 
     /**
      * Executes a query containing the clause LIMIT with a Statement and a PreparedStatement, using a combination of
-     * Connection properties, maxRows value and limit clause value, and tests if the results count is the expected.
+     * ConnectionManager properties, maxRows value and limit clause value, and tests if the results count is the expected.
      */
     private void testBug71396MultiSettingsCheck(String connProps, int maxRows, int limitClause, int expRowCount) throws SQLException {
         Connection testConn = getConnectionWithProps(connProps);
@@ -7760,7 +7760,7 @@ public class StatementRegressionTest extends BaseTestCase {
         } catch (TimeoutException e) {
             // The connection hung, forcibly closing it releases resources.
             this.stmt.execute("KILL CONNECTION " + testConn.getId());
-            fail("Connection hung after executeUpdate().");
+            fail("ConnectionManager hung after executeUpdate().");
         }
         this.pstmt.close();
 
@@ -7778,7 +7778,7 @@ public class StatementRegressionTest extends BaseTestCase {
         } catch (TimeoutException e) {
             // The connection hung, forcibly closing it releases resources.
             this.stmt.execute("KILL CONNECTION " + testConn.getId());
-            fail("Connection hung after executeQuery().");
+            fail("ConnectionManager hung after executeQuery().");
         }
         assertTrue(this.rs.next());
         assertEquals(10, this.rs.getInt(1));
@@ -7860,7 +7860,7 @@ public class StatementRegressionTest extends BaseTestCase {
             } catch (TimeoutException e) {
                 // The connection hung, forcibly closing it releases resources.
                 this.stmt.executeQuery("KILL CONNECTION " + testConn.getId());
-                fail(testCase + ": Connection hung!");
+                fail(testCase + ": ConnectionManager hung!");
             }
             executor.shutdownNow();
 

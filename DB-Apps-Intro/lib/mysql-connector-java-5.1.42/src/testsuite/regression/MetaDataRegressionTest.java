@@ -3456,8 +3456,8 @@ public class MetaDataRegressionTest extends BaseTestCase {
         // test with standard connection
         assertFalse("Property useInformationSchema should be false", ((ConnectionProperties) this.conn).getUseInformationSchema());
         assertTrue("Property getProceduresReturnsFunctions should be true", ((ConnectionProperties) this.conn).getGetProceduresReturnsFunctions());
-        checkGetProceduresForBug69298("Std. Connection MetaData", this.conn);
-        checkGetProcedureColumnsForBug69298("Std. Connection MetaData", this.conn);
+        checkGetProceduresForBug69298("Std. ConnectionManager MetaData", this.conn);
+        checkGetProcedureColumnsForBug69298("Std. ConnectionManager MetaData", this.conn);
 
         // test with property useInformationSchema=true
         testConn = getConnectionWithProps("useInformationSchema=true");

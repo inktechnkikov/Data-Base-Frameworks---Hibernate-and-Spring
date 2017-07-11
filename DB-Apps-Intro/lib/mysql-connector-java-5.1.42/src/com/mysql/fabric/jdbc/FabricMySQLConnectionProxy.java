@@ -99,7 +99,7 @@ public class FabricMySQLConnectionProxy extends ConnectionPropertiesImpl impleme
     // Set of connections created for this proxy (initialized lazily)
     protected Map<ServerGroup, ReplicationConnection> serverConnections = new HashMap<ServerGroup, ReplicationConnection>();
 
-    // Connection currently in use for this proxy
+    // ConnectionManager currently in use for this proxy
     protected ReplicationConnection currentConnection;
 
     // Server selection criteria
@@ -2699,7 +2699,7 @@ public class FabricMySQLConnectionProxy extends ConnectionPropertiesImpl impleme
         super.setGetProceduresReturnsFunctions(getProcedureReturnsFunctions);
     }
 
-    // com.mysql.jdbc.Connection
+    // com.mysql.jdbc.ConnectionManager
 
     public int getActiveStatementCount() {
         return -1;
@@ -3019,7 +3019,7 @@ public class FabricMySQLConnectionProxy extends ConnectionPropertiesImpl impleme
         return false;
     }
 
-    // java.sql.Connection
+    // java.sql.ConnectionManager
     public void clearWarnings() {
     }
 

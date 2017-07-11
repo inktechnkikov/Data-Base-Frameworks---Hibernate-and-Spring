@@ -31,7 +31,7 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 /**
- * A proxy for a dynamic com.mysql.jdbc.Connection implementation that provides failover features for list of hosts. Connection switching occurs on
+ * A proxy for a dynamic com.mysql.jdbc.ConnectionManager implementation that provides failover features for list of hosts. ConnectionManager switching occurs on
  * communications related exceptions and/or user defined settings, namely when one of the conditions set in 'secondsBeforeRetryMaster' or
  * 'queriesBeforeRetryMaster' is met.
  */
@@ -226,7 +226,7 @@ public class FailoverConnectionProxy extends MultiHostConnectionProxy {
             switchCurrentConnectionTo(hostIndex, createConnectionForHostIndex(hostIndex));
         } catch (SQLException e) {
             if (this.currentConnection != null) {
-                StringBuilder msg = new StringBuilder("Connection to ").append(isPrimaryHostIndex(hostIndex) ? "primary" : "secondary").append(" host '")
+                StringBuilder msg = new StringBuilder("ConnectionManager to ").append(isPrimaryHostIndex(hostIndex) ? "primary" : "secondary").append(" host '")
                         .append(this.hostList.get(hostIndex)).append("' failed");
                 this.currentConnection.getLog().logWarn(msg.toString(), e);
             }

@@ -173,7 +173,7 @@ public abstract class BaseBugReport {
 
     /**
      * Provides the JDBC URL to use to demonstrate the bug. The
-     * java.sql.Connection that you use to demonstrate this bug will be provided
+     * java.sql.ConnectionManager that you use to demonstrate this bug will be provided
      * by the getConnection() method using this URL.
      * 
      * The default value is 'jdbc:mysql:///test'
@@ -219,7 +219,7 @@ public abstract class BaseBugReport {
      * 
      * @param url
      *            the JDBC URL to use
-     * @return a new java.sql.Connection to the JDBC URL.
+     * @return a new java.sql.ConnectionManager to the JDBC URL.
      * @throws SQLException
      *             if an error occurs getting the connection.
      */
@@ -234,7 +234,7 @@ public abstract class BaseBugReport {
      *            the JDBC URL to use
      * @param props
      *            the JDBC properties to use
-     * @return a new java.sql.Connection to the JDBC URL.
+     * @return a new java.sql.ConnectionManager to the JDBC URL.
      * @throws SQLException
      *             if an error occurs getting the connection.
      */

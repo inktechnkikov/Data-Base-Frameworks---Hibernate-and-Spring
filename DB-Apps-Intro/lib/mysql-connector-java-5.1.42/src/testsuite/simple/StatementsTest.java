@@ -171,7 +171,7 @@ public class StatementsTest extends BaseTestCase {
     }
 
     public void testAccessorsAndMutators() throws SQLException {
-        assertTrue("Connection can not be null, and must be same connection", this.stmt.getConnection() == this.conn);
+        assertTrue("ConnectionManager can not be null, and must be same connection", this.stmt.getConnection() == this.conn);
 
         // Set max rows, to exercise code in execute(), executeQuery() and executeUpdate()
         Statement accessorStmt = null;
@@ -710,7 +710,7 @@ public class StatementsTest extends BaseTestCase {
                 }
 
                 if (count == 0) {
-                    fail("Connection was never killed");
+                    fail("ConnectionManager was never killed");
                 }
 
                 try {

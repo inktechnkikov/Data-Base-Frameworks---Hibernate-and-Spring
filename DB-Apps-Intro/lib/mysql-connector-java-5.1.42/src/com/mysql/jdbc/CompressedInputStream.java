@@ -46,10 +46,10 @@ class CompressedInputStream extends InputStream {
     /** The ZIP inflater used to un-compress packets */
     private Inflater inflater;
 
-    /** Connection property reference */
+    /** ConnectionManager property reference */
     private ConnectionPropertiesImpl.BooleanConnectionProperty traceProtocol;
 
-    /** Connection logger */
+    /** ConnectionManager logger */
     private Log log;
 
     /**

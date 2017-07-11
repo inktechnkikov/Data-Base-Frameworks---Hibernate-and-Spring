@@ -67,7 +67,7 @@ import com.mysql.jdbc.util.ReadAheadInputStream;
 import com.mysql.jdbc.util.ResultSetUtil;
 
 /**
- * This class is used by Connection for communicating with the MySQL server.
+ * This class is used by ConnectionManager for communicating with the MySQL server.
  */
 public class MysqlIO {
     private static final String CODE_PAGE_1252 = "Cp1252";
@@ -260,7 +260,7 @@ public class MysqlIO {
      * @param socketFactoryClassName
      *            the socket factory to use
      * @param conn
-     *            the Connection that is creating us
+     *            the ConnectionManager that is creating us
      * @param socketTimeout
      *            the timeout to set for the socket (0 means no
      *            timeout)
@@ -479,7 +479,7 @@ public class MysqlIO {
         return rs;
     }
 
-    // We do this to break the chain between MysqlIO and Connection, so that we can have PhantomReferences on connections that let the driver clean up the
+    // We do this to break the chain between MysqlIO and ConnectionManager, so that we can have PhantomReferences on connections that let the driver clean up the
     // socket connection without having to use finalize() somewhere (which although more straightforward, is horribly inefficent).
     protected NetworkResources getNetworkResources() {
         return new NetworkResources(this.mysqlConnection, this.mysqlInput, this.mysqlOutput);

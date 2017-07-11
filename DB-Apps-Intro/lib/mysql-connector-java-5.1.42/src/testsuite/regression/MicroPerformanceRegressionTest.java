@@ -57,7 +57,7 @@ public class MicroPerformanceRegressionTest extends BaseTestCase {
         BASELINE_TIMES.put("ResultSet.getDate()", new Double(0.02223));
         BASELINE_TIMES.put("ResultSet.getString()", new Double(0.00982));
         BASELINE_TIMES.put("ResultSet.getObject() on a string", new Double(0.00861));
-        BASELINE_TIMES.put("Connection.prepareStatement()", new Double(0.18547));
+        BASELINE_TIMES.put("ConnectionManager.prepareStatement()", new Double(0.18547));
         BASELINE_TIMES.put("single selects", new Double(46));
         BASELINE_TIMES.put("5 standalone queries", new Double(146));
         BASELINE_TIMES.put("total time all queries", new Double(190));
@@ -260,7 +260,7 @@ public class MicroPerformanceRegressionTest extends BaseTestCase {
         @SuppressWarnings("unused")
         double getPrepareStmtAvgMs = (double) (currentTimeMillis() - start) / numPrepares;
 
-        // checkTime("Connection.prepareStatement()", getPrepareStmtAvgMs);
+        // checkTime("ConnectionManager.prepareStatement()", getPrepareStmtAvgMs);
 
         PreparedStatement pStmt = this.conn.prepareStatement("INSERT INTO marktest VALUES (?, ?, ?, ?, ?)");
 

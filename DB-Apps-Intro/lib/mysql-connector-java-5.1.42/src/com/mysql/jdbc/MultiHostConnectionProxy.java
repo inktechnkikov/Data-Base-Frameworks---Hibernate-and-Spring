@@ -141,7 +141,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
      * @param hosts
      *            The list of hosts for this multi-host connection.
      * @param props
-     *            Connection properties from where to get initial settings and to be used in new connections.
+     *            ConnectionManager properties from where to get initial settings and to be used in new connections.
      * @return
      *         The number of hosts found in the hosts list.
      */
@@ -167,7 +167,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
     }
 
     /**
-     * Wraps this object with a new multi-host Connection instance.
+     * Wraps this object with a new multi-host ConnectionManager instance.
      * 
      * @return
      *         The connection object instance that wraps 'this'.
@@ -314,7 +314,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
      * @param hostPortSpec
      *            The host:port specification.
      * @return
-     *         The new Connection instance.
+     *         The new ConnectionManager instance.
      */
     synchronized ConnectionImpl createConnectionForHost(String hostPortSpec) throws SQLException {
         Properties connProps = (Properties) this.localProps.clone();
@@ -401,7 +401,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
     abstract void doAbort(Executor executor) throws SQLException;
 
     /**
-     * Proxies method invocation on the java.sql.Connection interface, trapping multi-host specific methods and generic methods.
+     * Proxies method invocation on the java.sql.ConnectionManager interface, trapping multi-host specific methods and generic methods.
      * Subclasses have to override this to complete the method invocation process, deal with exceptions and decide when to switch connection.
      * To avoid unnecessary additional exception handling overriders should consult #canDealWith(Method) before chaining here.
      */
@@ -424,7 +424,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
         if (METHOD_CLOSE.equals(methodName)) {
             doClose();
             this.isClosed = true;
-            this.closedReason = "Connection explicitly closed.";
+            this.closedReason = "ConnectionManager explicitly closed.";
             this.closedExplicitly = true;
             return null;
         }
@@ -433,14 +433,14 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
             doAbortInternal();
             this.currentConnection.abortInternal();
             this.isClosed = true;
-            this.closedReason = "Connection explicitly closed.";
+            this.closedReason = "ConnectionManager explicitly closed.";
             return null;
         }
 
         if (METHOD_ABORT.equals(methodName) && args.length == 1) {
             doAbort((Executor) args[0]);
             this.isClosed = true;
-            this.closedReason = "Connection explicitly closed.";
+            this.closedReason = "ConnectionManager explicitly closed.";
             return null;
         }
 

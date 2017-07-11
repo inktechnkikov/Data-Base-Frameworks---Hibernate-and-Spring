@@ -101,7 +101,7 @@ public class UpdatableResultSet extends ResultSetImpl {
      * @param tuples
      *            actual row data
      * @param conn
-     *            the Connection that created us.
+     *            the ConnectionManager that created us.
      * @param creatorStmt
      * 
      * @throws SQLException
@@ -224,7 +224,7 @@ public class UpdatableResultSet extends ResultSetImpl {
         try {
             if (this.fields == null) {
                 // we've been created to be populated with cached metadata, and we don't have the metadata yet, we'll be called again by
-                // Connection.initializeResultsMetadataFromCache() when the metadata has been made available
+                // ConnectionManager.initializeResultsMetadataFromCache() when the metadata has been made available
 
                 return;
             }
