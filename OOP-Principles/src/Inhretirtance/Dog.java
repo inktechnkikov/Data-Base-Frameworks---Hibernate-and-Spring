@@ -18,4 +18,13 @@ public class Dog extends Animal{
         System.out.println(breed);
        return breed;
     }
+    @Override
+    public void eat(){
+        System.out.println("Eating...");
+    }
+    @Override
+    public void run(){
+        System.out.println("Dog can run fast");
+    }
+
 }
