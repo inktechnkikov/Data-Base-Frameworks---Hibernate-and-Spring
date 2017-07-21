@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 @Table(name = "ingredients")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "ingredient_Type")
-public abstract class BasicGradient {
+public abstract class BasicIngredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,9 +14,9 @@ public abstract class BasicGradient {
     @Basic
     private BigDecimal price;
 
-    public BasicGradient(){
+    public BasicIngredient(){
     }
-    public BasicGradient(String name,BigDecimal price){
+    public BasicIngredient(String name, BigDecimal price){
         this.name = name;
         this.price = price;
     }

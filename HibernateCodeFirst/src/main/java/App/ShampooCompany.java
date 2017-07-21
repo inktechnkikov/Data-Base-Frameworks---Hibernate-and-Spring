@@ -1,7 +1,7 @@
 package App;
 
 import model.AmonuimChloride;
-import model.BasicGradient;
+import model.BasicIngredient;
 import model.Mint;
 import model.Strawberry;
 
@@ -14,14 +14,14 @@ public class ShampooCompany {
         EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("ShampooCompany");
         EntityManager manager = managerFactory.createEntityManager();
         manager.getTransaction().begin();
-        BasicGradient mint = new Mint();
-        BasicGradient mint1 = new Mint();
-        BasicGradient strawberry = new Strawberry();
-        BasicGradient amoniumChloride = new AmonuimChloride();
+        BasicIngredient mint = new Mint();
+        BasicIngredient mint1 = new Mint();
+        BasicIngredient strawberry = new Strawberry();
+        BasicIngredient amonnuimChloride = new AmonuimChloride();
         manager.persist(mint);
         manager.persist(mint1);
         manager.persist(strawberry);
-        manager.persist(amoniumChloride);
+        manager.persist(amonnuimChloride);
         manager.getTransaction().commit();
     }
 }
