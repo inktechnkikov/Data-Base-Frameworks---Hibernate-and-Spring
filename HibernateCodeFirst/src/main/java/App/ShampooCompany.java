@@ -1,13 +1,12 @@
 package App;
 
-import model.AmonuimChloride;
-import model.BasicIngredient;
-import model.Mint;
-import model.Strawberry;
+import model.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ShampooCompany {
     public static void main(String[] args) {
@@ -22,6 +21,18 @@ public class ShampooCompany {
         manager.persist(mint1);
         manager.persist(strawberry);
         manager.persist(amonnuimChloride);
+
+        ClassicLabel label = new ClassicLabel("Fresh Water");
+        BasicShampoos shampoos = new FreshShampoo();
+        ProductionBatch batch = new ProductionBatch();
+        Set<BasicIngredient> ingredientSet = new HashSet<>();
+        ingredientSet.add(mint);
+        ingredientSet.add(amonnuimChloride);
+        ingredientSet.add(strawberry);
+        shampoos.setLabel(label);
+        shampoos.setBatch(batch);
+        shampoos.setIngredientSet(ingredientSet);
+        manager.persist(shampoos);
         manager.getTransaction().commit();
     }
 }

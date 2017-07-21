@@ -1,6 +1,8 @@
 package model;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
+
 @Entity
 @Table(name = "ingredients")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -12,6 +14,10 @@ public abstract class BasicIngredient {
     private String name;
     @Basic
     private BigDecimal price;
+
+    @ManyToMany(mappedBy = "ingredientSet")
+    private Set<BasicShampoos> basicShampoosSet;
+
 
     public BasicIngredient(){
     }
@@ -38,4 +44,13 @@ public abstract class BasicIngredient {
     public void setPrice(){
         this.price = price;
     }
+
+    public Set<BasicShampoos> getBasicShampoosSet() {
+        return this.basicShampoosSet;
+    }
+
+    public void setBasicShampoosSet(Set<BasicShampoos> basicShampoosSet) {
+        this.basicShampoosSet = basicShampoosSet;
+    }
+
 }
