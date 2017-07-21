@@ -3,8 +3,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 @Entity
 @Table(name = "ingredients")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "ingredient_Type")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class BasicIngredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
