@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f77bf9c2-4edc-46ea-b9b2-168221ccfded" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/introductionToHibernate/.idea/libraries/Maven__mysql_mysql_connector_java_6_0_6.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introductionToHibernate/target/classes/Main.class" afterPath="$PROJECT_DIR$/introductionToHibernate/target/classes/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OOP-Principles/.idea/workspace.xml" afterPath="$PROJECT_DIR$/OOP-Principles/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpringDataIntro/.idea/workspace.xml" afterPath="$PROJECT_DIR$/SpringDataIntro/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introductionToHibernate/.idea/workspace.xml" afterPath="$PROJECT_DIR$/introductionToHibernate/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introductionToHibernate/introductionToHibernate.iml" afterPath="$PROJECT_DIR$/introductionToHibernate/introductionToHibernate.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introductionToHibernate/pom.xml" afterPath="$PROJECT_DIR$/introductionToHibernate/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introductionToHibernate/src/main/java/Main.java" afterPath="$PROJECT_DIR$/introductionToHibernate/src/main/java/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introductionToHibernate/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/introductionToHibernate/src/main/resources/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introductionToHibernate/target/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/introductionToHibernate/target/classes/META-INF/persistence.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,11 +56,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -401,11 +409,13 @@
       <workItem from="1499260161784" duration="79000" />
       <workItem from="1500477528550" duration="10000" />
       <workItem from="1500477603862" duration="275000" />
+      <workItem from="1500816137667" duration="14000" />
+      <workItem from="1500816789806" duration="16000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1718000" />
+    <option name="totallyTimeSpent" value="1748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="780" extended-state="0" />
@@ -422,7 +432,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20245399" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
