@@ -6,4 +6,5 @@ import spring.data.Models.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User,Long>{
+    User findUserByUsername(String username);
 }

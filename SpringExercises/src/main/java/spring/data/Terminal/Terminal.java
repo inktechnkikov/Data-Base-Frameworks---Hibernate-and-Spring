@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import spring.data.Models.User;
 import spring.data.Services.UserService;
 
-
 @Component
 public class Terminal implements CommandLineRunner{
     private final UserService service;
@@ -19,6 +18,7 @@ public class Terminal implements CommandLineRunner{
     @Override
     public void run(String... strings) throws Exception {
             User user = new User();
+
             user.setUsername("Stamat");
             user.setPassword("pass");
             service.persist(user);

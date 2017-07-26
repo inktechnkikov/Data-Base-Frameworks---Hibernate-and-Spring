@@ -1,9 +1,10 @@
 package spring.data.Models;
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,7 +13,8 @@ public class User {
     private String username;
     @Column(name = "password")
     private String password;
-
+    @Column(name = "registration_day")
+    private Date regitrationDay;
     public User(){
 
     }
@@ -39,5 +41,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public Date getRegitrationDay() {
+        return this.regitrationDay;
+    }
+
+    public void setRegitrationDay(Date regitrationDay) {
+        this.regitrationDay = regitrationDay;
     }
 }
