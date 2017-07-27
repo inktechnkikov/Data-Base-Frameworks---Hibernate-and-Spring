@@ -4,9 +4,9 @@ import model.BasicIngredient;
 
 import java.util.List;
 
-public interface IngredientService {
-    BasicIngredient findById(Long id);
-    void remove(BasicIngredient obj);
+public interface IngredientService{
+    BasicIngredient findBy(Long id);
+    void remove(BasicIngredient object);
     List<BasicIngredient> findAll();
-    void save(BasicIngredient obj);
+    void save(BasicIngredient object);
 }

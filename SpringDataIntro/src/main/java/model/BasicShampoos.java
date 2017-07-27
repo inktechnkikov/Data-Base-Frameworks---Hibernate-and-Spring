@@ -18,7 +18,7 @@ public abstract class BasicShampoos {
     @JoinColumn(name = "batch_id")
     private ProductionBatch batch;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
     @JoinTable(name = "shampoos_ingredients",joinColumns = @JoinColumn(name = "shampoo_id"),inverseJoinColumns =
     @JoinColumn(name = "ingredient_id"))
     private Set<BasicIngredient> ingredientSet;
