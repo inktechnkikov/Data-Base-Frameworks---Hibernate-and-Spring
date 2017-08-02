@@ -27,7 +27,7 @@ public class ServiceCarImplementation implements ServiceCar{
 
     @Override
     public void searchByBrand() {
-      List<Car> carList = this.carRepository.findCarByBrand("BMW");
+      List<Car> carList = this.carRepository.findCarByBrand("Tesla");
         for (Car car : carList) {
             System.out.printf("Brand %s%n",car.getBrand());
         }
@@ -47,6 +47,14 @@ public class ServiceCarImplementation implements ServiceCar{
         List<Car> carList = this.carRepository.findCarByBrandAndPrice("Mercedes",10.700);
         for (Car car : carList) {
             System.out.printf("Brand %s,Price %.2f%n",car.getBrand(),car.getPrice());
+        }
+    }
+
+    @Override
+    public void searchByBrandAndEngineType() {
+        List<Car> carList = this.carRepository.findCarsByBrandAndEngineType("Tesla","Electrical");
+        for (Car car : carList) {
+            System.out.printf("Brand %s,Engine %s%n",car.getBrand(),car.getEngineType());
         }
     }
 

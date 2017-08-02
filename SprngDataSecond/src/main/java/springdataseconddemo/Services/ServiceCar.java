@@ -7,4 +7,5 @@ public interface ServiceCar {
     void searchByBrand();
     void searchByEngineType();
     void searchByBrandAndPrice();
+    void searchByBrandAndEngineType();
 }

@@ -23,7 +23,6 @@ public class ConsoleTerminal implements CommandLineRunner{
         car.setHorsePower(100);
         car.setEngineType("diesel");
         car.setPrice(10.700);
-        serviceCar.persist(car);
         Car car1 = new Car();
         car1.setBrand("BMW");
         car1.setModel("5 series");
@@ -36,12 +35,18 @@ public class ConsoleTerminal implements CommandLineRunner{
         audi.setHorsePower(145);
         audi.setEngineType("diesel");
         audi.setPrice(9.500);
-        serviceCar.persist(car);
-        serviceCar.persist(car1);
-        serviceCar.persist(audi);
-       // serviceCar.searchByBrand();
-        serviceCar.searchByEngineType();
+        Car tesla = new Car();
+        tesla.setEngineType("Electrical");
+        tesla.setModel("Model 3");
+        tesla.setHorsePower(690);
+        tesla.setBrand("Tesla");
+        tesla.setPrice(60.000);
+      //  serviceCar.persist(car);
+      //  serviceCar.persist(car1);
+     //   serviceCar.persist(audi);
+      //  serviceCar.searchByBrand();
+       // serviceCar.searchByEngineType();
      //   serviceCar.searchByBrandAndPrice();
-
+        serviceCar.searchByBrandAndEngineType();
     }
 }
