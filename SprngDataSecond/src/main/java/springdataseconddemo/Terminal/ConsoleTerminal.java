@@ -2,11 +2,11 @@ package springdataseconddemo.Terminal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import springdataseconddemo.Entities.Car;
 import springdataseconddemo.Services.ServiceCar;
 
-@Component
+@Controller
 public class ConsoleTerminal implements CommandLineRunner{
 
     private final ServiceCar serviceCar;
@@ -36,10 +36,12 @@ public class ConsoleTerminal implements CommandLineRunner{
         audi.setHorsePower(145);
         audi.setEngineType("diesel");
         audi.setPrice(9.500);
+        serviceCar.persist(car);
         serviceCar.persist(car1);
         serviceCar.persist(audi);
-        serviceCar.searchByBrand();
+       // serviceCar.searchByBrand();
         serviceCar.searchByEngineType();
-        serviceCar.searchByBrandAndPrice();
+     //   serviceCar.searchByBrandAndPrice();
+
     }
 }

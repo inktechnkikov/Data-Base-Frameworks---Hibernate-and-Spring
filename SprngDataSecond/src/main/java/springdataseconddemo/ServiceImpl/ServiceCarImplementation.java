@@ -27,24 +27,26 @@ public class ServiceCarImplementation implements ServiceCar{
 
     @Override
     public void searchByBrand() {
-        List<Car> carList = this.carRepository.findCarByBrand("Mercedes");
+      List<Car> carList = this.carRepository.findCarByBrand("BMW");
         for (Car car : carList) {
-            System.out.println(car.getBrand());
-        }
-    }
-    @Override
-    public void searchByEngineType() {
-        List<Car> carList = this.carRepository.findCarByEngineType("diesel");
-        for (Car car : carList) {
-            System.out.println(car.getEngineType());
+            System.out.printf("Brand %s%n",car.getBrand());
         }
     }
 
     @Override
-    public void searchByBrandAndPrice() {
-        List<Car> carList = this.carRepository.findCarByBrandAndPrice("Mercedes",10.7);
+    public void searchByEngineType() {
+        List<Car> carList = this.carRepository.findCarByEngineType("diesel");
         for (Car car : carList) {
-            System.out.printf("Brand %s,price %.2f%n",car.getBrand(),car.getPrice());
+            System.out.printf("Engine type %s%n",car.getEngineType());
+        }
+    }
+
+
+    @Override
+    public void searchByBrandAndPrice() {
+        List<Car> carList = this.carRepository.findCarByBrandAndPrice("Mercedes",10.700);
+        for (Car car : carList) {
+            System.out.printf("Brand %s,Price %.2f%n",car.getBrand(),car.getPrice());
         }
     }
 
