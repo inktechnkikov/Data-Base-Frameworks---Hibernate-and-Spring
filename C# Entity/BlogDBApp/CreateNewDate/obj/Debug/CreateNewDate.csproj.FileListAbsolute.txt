@@ -1,0 +1,10 @@
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\bin\Debug\CreateNewDate.exe.config
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\bin\Debug\CreateNewDate.exe
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\bin\Debug\CreateNewDate.pdb
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\bin\Debug\EntityFramework.dll
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\bin\Debug\EntityFramework.SqlServer.dll
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\bin\Debug\EntityFramework.xml
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\bin\Debug\EntityFramework.SqlServer.xml
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\obj\Debug\CreateNewDate.exe
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\obj\Debug\CreateNewDate.pdb
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\obj\Debug\CreateNewDate.csprojResolveAssemblyReference.cache

@@ -1,0 +1,6 @@
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\BankRecipt\bin\Debug\BankRecipt.exe.config
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\BankRecipt\bin\Debug\BankRecipt.exe
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\BankRecipt\bin\Debug\BankRecipt.pdb
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\BankRecipt\obj\Debug\BankRecipt.csprojResolveAssemblyReference.cache
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\BankRecipt\obj\Debug\BankRecipt.exe
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\BankRecipt\obj\Debug\BankRecipt.pdb

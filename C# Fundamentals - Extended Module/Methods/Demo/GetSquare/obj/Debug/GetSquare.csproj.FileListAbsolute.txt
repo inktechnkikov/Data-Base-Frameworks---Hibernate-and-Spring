@@ -1,0 +1,5 @@
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\GetSquare\bin\Debug\GetSquare.exe.config
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\GetSquare\bin\Debug\GetSquare.exe
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\GetSquare\bin\Debug\GetSquare.pdb
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\GetSquare\obj\Debug\GetSquare.exe
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\GetSquare\obj\Debug\GetSquare.pdb

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Persons";
+}
+
+<h2>Persons</h2>
+
+@model string[]
+    <ul>
+       @foreach(string p in Model)
+       {
+           <li>@p</li>
+       }
+    </ul>
+               

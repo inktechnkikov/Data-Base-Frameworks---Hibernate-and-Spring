@@ -1,0 +1,6 @@
+D:\projects\C# Fundamentals - Extended Module\DataTypes\TimeSinceBirthDay\TimeSinceBirthDay\bin\Debug\TimeSinceBirthDay.exe.config
+D:\projects\C# Fundamentals - Extended Module\DataTypes\TimeSinceBirthDay\TimeSinceBirthDay\bin\Debug\TimeSinceBirthDay.exe
+D:\projects\C# Fundamentals - Extended Module\DataTypes\TimeSinceBirthDay\TimeSinceBirthDay\bin\Debug\TimeSinceBirthDay.pdb
+D:\projects\C# Fundamentals - Extended Module\DataTypes\TimeSinceBirthDay\TimeSinceBirthDay\obj\Debug\TimeSinceBirthDay.csprojResolveAssemblyReference.cache
+D:\projects\C# Fundamentals - Extended Module\DataTypes\TimeSinceBirthDay\TimeSinceBirthDay\obj\Debug\TimeSinceBirthDay.exe
+D:\projects\C# Fundamentals - Extended Module\DataTypes\TimeSinceBirthDay\TimeSinceBirthDay\obj\Debug\TimeSinceBirthDay.pdb

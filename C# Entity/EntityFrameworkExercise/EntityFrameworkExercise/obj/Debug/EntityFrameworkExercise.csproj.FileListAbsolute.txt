@@ -1,0 +1,10 @@
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\bin\Debug\EntityFrameworkExercise.exe.config
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\bin\Debug\EntityFrameworkExercise.exe
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\bin\Debug\EntityFrameworkExercise.pdb
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\bin\Debug\EntityFramework.dll
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\bin\Debug\EntityFramework.SqlServer.dll
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\bin\Debug\EntityFramework.xml
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\bin\Debug\EntityFramework.SqlServer.xml
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\obj\Debug\EntityFrameworkExercise.csprojResolveAssemblyReference.cache
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\obj\Debug\EntityFrameworkExercise.exe
+D:\data\linux\Projects\C# Entity\EntityFrameworkExercise\EntityFrameworkExercise\obj\Debug\EntityFrameworkExercise.pdb

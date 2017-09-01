@@ -1,0 +1,13 @@
+body{
+    background: #d0e4fe;
+}
+div{
+    background-color: chocolate;
+}
+.special{
+    color: aqua;
+}
+.firstName{
+    color: aliceblue;
+    font-style: italic;
+}

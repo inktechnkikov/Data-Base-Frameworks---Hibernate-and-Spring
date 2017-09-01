@@ -1,0 +1,10 @@
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\bin\Debug\UpdateExistingData.exe.config
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\bin\Debug\UpdateExistingData.exe
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\bin\Debug\UpdateExistingData.pdb
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\bin\Debug\EntityFramework.dll
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\bin\Debug\EntityFramework.SqlServer.dll
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\bin\Debug\EntityFramework.xml
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\bin\Debug\EntityFramework.SqlServer.xml
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\obj\Debug\UpdateExistingData.csprojResolveAssemblyReference.cache
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\obj\Debug\UpdateExistingData.exe
+D:\data\linux\Projects\C# Entity\BlogDBApp\UpdateExistingData\obj\Debug\UpdateExistingData.pdb

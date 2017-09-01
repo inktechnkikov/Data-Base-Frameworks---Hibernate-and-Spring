@@ -1,0 +1,6 @@
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\FirstClass\bin\Debug\FirstClass.exe.config
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\FirstClass\bin\Debug\FirstClass.exe
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\FirstClass\bin\Debug\FirstClass.pdb
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\FirstClass\obj\Debug\FirstClass.csprojResolveAssemblyReference.cache
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\FirstClass\obj\Debug\FirstClass.exe
+D:\projects\C# Fundamentals - Extended Module\Methods\Demo\FirstClass\obj\Debug\FirstClass.pdb

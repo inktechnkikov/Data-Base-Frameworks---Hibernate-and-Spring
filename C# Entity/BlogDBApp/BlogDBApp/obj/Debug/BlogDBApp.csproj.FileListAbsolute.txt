@@ -1,0 +1,10 @@
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\bin\Debug\BlogDBApp.exe.config
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\bin\Debug\BlogDBApp.exe
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\bin\Debug\BlogDBApp.pdb
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\bin\Debug\EntityFramework.dll
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\bin\Debug\EntityFramework.SqlServer.dll
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\bin\Debug\EntityFramework.xml
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\bin\Debug\EntityFramework.SqlServer.xml
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\obj\Debug\BlogDBApp.csprojResolveAssemblyReference.cache
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\obj\Debug\BlogDBApp.exe
+D:\data\linux\Projects\C# Entity\BlogDBApp\BlogDBApp\obj\Debug\BlogDBApp.pdb

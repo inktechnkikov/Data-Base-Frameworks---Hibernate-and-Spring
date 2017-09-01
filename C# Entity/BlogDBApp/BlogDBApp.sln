@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogDBApp", "BlogDBApp\BlogDBApp.csproj", "{C139125F-2A29-4BC3-85DE-BF1F2A4A619C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateNewData", "CreateNewDate\CreateNewData.csproj", "{49285570-CE20-4DFB-87BB-A5D208733442}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateExistingData", "UpdateExistingData\UpdateExistingData.csproj", "{031814BC-DED8-4175-BB8C-9A8CA41AEDB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C139125F-2A29-4BC3-85DE-BF1F2A4A619C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C139125F-2A29-4BC3-85DE-BF1F2A4A619C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C139125F-2A29-4BC3-85DE-BF1F2A4A619C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C139125F-2A29-4BC3-85DE-BF1F2A4A619C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49285570-CE20-4DFB-87BB-A5D208733442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49285570-CE20-4DFB-87BB-A5D208733442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49285570-CE20-4DFB-87BB-A5D208733442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49285570-CE20-4DFB-87BB-A5D208733442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031814BC-DED8-4175-BB8C-9A8CA41AEDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031814BC-DED8-4175-BB8C-9A8CA41AEDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031814BC-DED8-4175-BB8C-9A8CA41AEDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031814BC-DED8-4175-BB8C-9A8CA41AEDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

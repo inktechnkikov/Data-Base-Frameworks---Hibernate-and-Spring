@@ -1,0 +1,3 @@
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\bin\Debug\CreateNewDate.exe.config
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\obj\Debug\CreateNewDate.exe
+D:\data\linux\Projects\C# Entity\BlogDBApp\CreateNewDate\obj\Debug\CreateNewDate.pdb

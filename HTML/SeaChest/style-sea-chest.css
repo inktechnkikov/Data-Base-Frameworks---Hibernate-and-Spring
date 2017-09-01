@@ -1,0 +1,34 @@
+.grid {
+    margin: auto;
+    width: 17rem;
+    text-align: center;
+    padding: 40px;
+    border-collapse: collapse;
+}
+td {
+    width: 5rem;
+    position: relative;
+    border: 2px solid #000;
+
+}
+td:after {
+    content: '';
+    display: block;
+}
+td .content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: gold;
+}
+.grid button{
+    width:100%;
+    height:4.75rem;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+}
