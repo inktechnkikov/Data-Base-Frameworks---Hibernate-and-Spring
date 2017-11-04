@@ -1,6 +1,0 @@
-D:\projects\CSharpOOP\OOPDemo\OOPDemo\bin\Debug\OOPDemo.exe.config
-D:\projects\CSharpOOP\OOPDemo\OOPDemo\bin\Debug\OOPDemo.exe
-D:\projects\CSharpOOP\OOPDemo\OOPDemo\bin\Debug\OOPDemo.pdb
-D:\projects\CSharpOOP\OOPDemo\OOPDemo\obj\Debug\OOPDemo.csprojResolveAssemblyReference.cache
-D:\projects\CSharpOOP\OOPDemo\OOPDemo\obj\Debug\OOPDemo.exe
-D:\projects\CSharpOOP\OOPDemo\OOPDemo\obj\Debug\OOPDemo.pdb
